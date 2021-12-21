@@ -7,9 +7,9 @@ import Phonebook from "./components/Phonebook";
 class App extends Component {
   state = {
     contacts: [
-      { id: 1, name: 'Denis', number: '123-123-123' },
-      { id: 2, name: 'Leha', number: '123-123-123' },
-      { id: 3, name: 'Sobaka', number: '123-123-123' },
+      // { id: 1, name: 'Denis', number: '123-123-123' },
+      // { id: 2, name: 'Leha', number: '123-123-123' },
+      // { id: 3, name: 'Sobaka', number: '123-123-123' },
     ],
   filter: ''
 }
