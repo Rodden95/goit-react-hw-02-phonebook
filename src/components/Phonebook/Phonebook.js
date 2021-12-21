@@ -1,6 +1,7 @@
 import { Component } from "react/cjs/react.production.min";
 import { Button, Form } from 'react-bootstrap';
 // import './Phonebook.scss'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import Contacts from "../Contacts";
 import Filter from "../Filter";
@@ -69,4 +70,11 @@ export default class Phonebook extends Component {
     )
   
   }
+}
+
+PropTypes.Phonebook = {
+  onSubmitFunc:PropTypes.func,
+  contacts:PropTypes.array,
+  filter:PropTypes.func,
+  deleteContact:PropTypes.func,
 }
