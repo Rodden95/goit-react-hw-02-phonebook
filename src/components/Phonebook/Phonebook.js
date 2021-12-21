@@ -2,30 +2,30 @@ import { Component } from "react/cjs/react.production.min";
 import { Button, Form } from 'react-bootstrap';
 // import './Phonebook.scss'
 import styled from '@emotion/styled'
+import Contacts from "../Contacts";
+import Filter from "../Filter";
+import shortid from "shortid";
 export default class Phonebook extends Component {
   state = {
     name: '',
     number: '',
+    id: '',
   }
   onSubmitInputHander = event => {
     event.preventDefault()
     const name = this.state.name
     const number = this.state.number
-    this.props.onSubmitFunc({ name, number })
+    let id = shortid.generate()
+    this.setState({id})
+    this.props.onSubmitFunc({ name, number, id })
+    
   }
 
    inputValueHandler = event => {
     const dataName = event.target.name
-  //   this.state.contacts.find(name => {
-  //     if (name !== dataName) {
-        this.setState({ [dataName]: event.target.value })
-  //     }
-  //   })
-    
-    
-    // console.log(this.state.name);
-    // console.log(name.target.name);
 
+        this.setState({ [dataName]: event.target.value })
+ 
   }
   render() {
     return (
@@ -57,6 +57,13 @@ export default class Phonebook extends Component {
             Submit
           </Button>
         </Form>
+        <Filter filter={ this.props.filter}/>
+        <Contacts
+          contacts={this.props.contacts}
+          
+          deleteContact={this.props.deleteContact}
+        />
+        
       </div>
     
     )
