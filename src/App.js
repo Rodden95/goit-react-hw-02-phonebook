@@ -17,8 +17,9 @@ class App extends Component {
   contactAdd = ({ name, number,id }) => {
     const newContact = {id, name, number}
     let findResult = this.state.contacts.find(e => e.name === name)
+    const catchThisContactIsNotPresentIn = typeof findResult !== 'object'
     
-    findResult === undefined ?
+    catchThisContactIsNotPresentIn ?
       this.setState(prevState =>
         ({ contacts: [...prevState.contacts, newContact] })) : alert('this name is present in')
       
